@@ -125,6 +125,13 @@ class Game:
                 self.enemies_spawned_this_wave = 0
                 self.max_enemies_per_wave += 5
                 self.wave_timer = 0
+
+                for square_type in self.square_types:
+                    # increasing stats of enemy units each wave (progression difficulty)
+                    square_type['hp'] = int(square_type['hp'] * 1.2)
+                    square_type['damage'] = int(square_type['damage'] * 1.2)
+                    square_type['bounty'] = int(square_type['bounty'] * 1.2)
+            
             else:
                 # if all 5 waves are done and no enemies left, player wins
                 if len(self.squares) == 0:

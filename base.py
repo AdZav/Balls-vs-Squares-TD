@@ -18,9 +18,11 @@ class Base:
         self.hp -= damage
     
     def draw(self, surface):
+    # draw main tower body
         pygame.draw.rect(surface, self.color, (self.x, self.y, 30, 300))
-        
-        # healthbar, fills up from bottom to top based on health percentage
+    
+
+    # health bar (fills from bottom to top)
         health_height = int((self.hp / self.max_hp) * 300)
         bright_color = (0, 200, 0) if self.is_player else (200, 0, 0)
         pygame.draw.rect(surface, bright_color, (self.x, self.y + 300 - health_height, 30, health_height))
