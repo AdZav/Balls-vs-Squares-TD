@@ -195,7 +195,7 @@ class Game:
             if ball.hp <= 0:
                 # air units drop bombs when they die
                 if ball.type == 'air':
-                    bomb = Bomb(ball.x, ball.y, True, sprites.get('bomb'), sprites.get('explosion'))
+                    bomb = Bomb(ball.x, ball.y, 15, True, sprites.get('bomb'), sprites.get('explosion'))
                     self.bombs.append(bomb)
                 self.balls.remove(ball)
             elif ball.x > 780:
