@@ -131,6 +131,12 @@ class Game:
                     square_type['hp'] = int(square_type['hp'] * 1.2)
                     square_type['damage'] = int(square_type['damage'] * 1.2)
                     square_type['bounty'] = int(square_type['bounty'] * 1.2)
+                
+                # making enemies spawn faster each wave
+                spawn_delay = max(60, 180 - (self.current_wave * 20))  # gets faster each wave
+                if self.enemy_spawn_timer > random.randint(spawn_delay // 2, spawn_delay):
+                    self.spawn_enemy()
+                    self.enemy_spawn_timer = 0
             
             else:
                 # if all 5 waves are done and no enemies left, player wins

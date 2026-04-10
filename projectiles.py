@@ -94,10 +94,10 @@ class Bomb:
     
     def draw(self, surface):
         # showing the bomb sprite first, then switch to explosion
-        if self.timer < 15 and self.bomb_sprite:
+        if self.falling and self.bomb_sprite:
             rect = self.bomb_sprite.get_rect(center=(int(self.x), int(self.y)))
             surface.blit(self.bomb_sprite, rect)
-        elif self.explosion_sprite:
+        elif not self.falling and self.explosion_sprite:
             # scaling the explosion based on how big the radius is
             scale = self.radius / self.max_radius
             scaled_explosion = pygame.transform.scale(self.explosion_sprite, 
